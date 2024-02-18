@@ -1,0 +1,60 @@
+form {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+    padding-left: 75px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    font-size: 1em;
+    background-color: #3531EC;
+    color: white;
+    padding: 14px 20px;
+    margin: 25px 100px 10px;
+    border: 1px solid #7E7E7E;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 300px;
+}
+button[type="submit"]:hover {
+    filter: drop-shadow(0 0 0.5em #646cffaa);
+}
+.input-group {
+    display: flex;
+    width: 550px;
+}
+.input-group input {
+    flex: 1;
+}
+#email {
+    width: 550px;
+}
+
+.register-page {
+    margin-left: 165px; /* Adjust as needed */
+}
+
+.register-page p {
+    font-size: 0.91em;
+}
+
+.register-page a {
+    color: blue; /* Link color */
+    text-decoration: none; /* Underline the link */
+}
+
+.register-page a:hover {
+    color: darkblue; /* Change link color on hover */
+}

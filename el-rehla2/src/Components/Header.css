@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    width: 100%;
+    background-color: #001C27;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo { 
+    height: 60px;
+    width : auto;
+    margin : 5px 35px;
+    z-index: 10001;
+  }
+
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
