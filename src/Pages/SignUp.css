@@ -1,3 +1,8 @@
+.Container {
+    display: flex;
+    height: 810px;
+    max-width: 100%;
+}
 form {
     background-color: #eee;
     padding: 20px;
@@ -57,4 +62,9 @@ button[type="submit"]:hover {
 
 .register-page a:hover {
     color: darkblue; /* Change link color on hover */
+}
+.Img {
+    flex: 2;
+    width: 200px;
+
 }
