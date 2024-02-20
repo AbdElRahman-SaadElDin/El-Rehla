@@ -48,7 +48,7 @@ button[type="submit"]:hover {
 }
 
 .register-page {
-    margin-left: 165px; /* Adjust as needed */
+    margin-left: 165px; 
 }
 
 .register-page p {
@@ -66,5 +66,10 @@ button[type="submit"]:hover {
 .Img {
     flex: 2;
     width: 200px;
-
+}
+.PassMessage {
+    color: red;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }

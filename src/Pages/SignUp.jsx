@@ -1,17 +1,33 @@
-import React  from "react";
+import React, { useState }   from "react";
 import './SignUp.css';
 import Header from '../Components/Header.jsx';
 import img from '../imgs/sebastian-svenson-scaled.jpg'
 
+function SignUp() {
 
-const SignUp = () =>{
+    const [Pass1, setPass1] = useState('');
+    const [Pass2, setPass2] = useState('');
+    const [isEqual, setIsEqual] = useState(null);
+
+    const handlePass1Change = (e) => {
+    setPass1(e.target.value);
+    };
+
+    const handlePass2Change = (e) => {
+    setPass2(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsEqual(Pass1 === Pass2 ? '' : 'The password and confirmation do not match! Please try again.');
+    };
+
     return(
     <div class="SignUp">
         <Header/>
         <div className="Container">
-            <form action="#" method="POST" >
+            <form action="#" onSubmit={handleSubmit} method="" >
                 <h2>Student Registration</h2>
-            
                 <div className="input-group">
                     <div style={{marginRight: 10 + 'px'}}>
                         <label htmlFor="firstname">First Name</label>
@@ -52,16 +68,16 @@ const SignUp = () =>{
                 <div className="input-group">
                     <div style={{marginRight: 10 + 'px'}}>
                         <label htmlFor="password">Password</label>
-                        <input type="text" id="password" name="password" required></input>
+                        <input type="password" value={Pass1} onChange={handlePass1Change} id="password" name="password" placeholder="Enter Your Password" required></input>
                     </div>
                     <div>
                         <label htmlFor="confirm">Confirm Password</label>
-                        <input type="text" id="confirm" name="confirm" required></input>
+                        <input type="password" value={Pass2} onChange={handlePass2Change} id="confirm" name="confirm" placeholder="Password Confirmation" required></input>
+                        
                     </div>
                 </div>
-
+                {isEqual !== null && <p className="PassMessage">{isEqual}</p>}
                 
-
                 <button type="submit" value="Register">Register</button>
                 
                 <div class="register-page">
