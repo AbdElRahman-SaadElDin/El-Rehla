@@ -1,0 +1,55 @@
+body {
+  background-color: #001c27;
+}
+.title {
+  text-align: center;
+  color: #ffff;
+  font-family: "Mulish";
+}
+.par {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.cont {
+  background-color: #f8fafc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(480px * 1.74366617);
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.FormSignIn {
+  background-color: #ffff;
+  margin: 10px;
+  width: 50%;
+}
+.LogEmail,
+.inLogEmail,
+.LogPass,
+.inLogPass,
+.Forget {
+  display: block;
+  margin-left: 25px;
+}
+.welcome{
+    margin: 34px 25px 0px;
+}
+.signTitle{
+    margin: 0 25px;
+}
+.continue{
+    margin-top: 10px;
+    background-color: #5a53f3;
+    border:1px solid #5a53f3;
+    width: 50%;
+    color: #ffff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
