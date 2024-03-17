@@ -22,3 +22,21 @@ body {
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+
+
+
+
+/** Try to put media in header component */
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    width: 110%;
+  }
+}
