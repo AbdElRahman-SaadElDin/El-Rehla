@@ -3,6 +3,8 @@ import styles from "./SignUp.module.css";
 import Header from "../Components/Header.jsx";
 import img from "../imgs/sebastian-svenson-scaled.jpg";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
   const url = "";
@@ -54,6 +56,7 @@ function SignUp() {
     );
     checkPasswordCriteria(Pass1);
     setSubmitted(true);
+    submitData();
   };
 
   function handle(e) {
@@ -62,20 +65,79 @@ function SignUp() {
     setData(newdata);
     console.log(newdata);
   }
-  function submit(e) {
-    e.preventDefault();
-    axios.post(url, {data});
-  }
+  // function submit(e) {
+  //   e.preventDefault();
+  //   axios.post(url, {data})
+  //   .then(res => {toast.success('🦄 Wow so easy!', {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     transition: "bounce",
+  //     });})
+  //   .catch(err => {toast.error('🦄 Wow so easy!', {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     transition: "bounce",
+  //     });});
+  // }
+  const submitData = () => {
+    axios.post(url, { data })
+      .then(res => {
+        toast.success('🦄 Wow so easy!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch(err => {
+        toast.error('🦄 Wow so easy!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+  };
 
   return (
     <div className="SignUp">
       <Header />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000} // Auto-close toast after 5 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick // Close toast when clicked
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className={styles.Container}>
         <form
           action="#"
           onSubmit={(e) => {
             handleSubmit(e);
-            submit(e);
           }}
           className={styles.FormReg}
         >

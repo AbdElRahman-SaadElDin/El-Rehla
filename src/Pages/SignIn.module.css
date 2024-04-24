@@ -1,6 +1,10 @@
 body {
   background-color: #ffffff;
 }
+.SignIn{
+  background-color: #001C27;
+  height: 100vh;
+}
 .title {
   text-align: center;
   color: #ffff;
@@ -12,15 +16,14 @@ body {
   align-items: center;
 }
 .cont {
-  background-color: #f8fafc;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(480px * 1.74366617);
-  height: 480px;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fafc
 }
 .FormSignIn {
   background-color: #ffff;
