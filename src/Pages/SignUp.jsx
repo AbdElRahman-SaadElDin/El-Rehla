@@ -16,7 +16,7 @@ function SignUp() {
     lName: "",
     phoneNumber: "",
     dateOfBirth: "",
-    level: "",
+    level:0,
   });
   const [Pass1, setPass1] = useState("");
   const [Pass2, setPass2] = useState("");
@@ -65,36 +65,10 @@ function SignUp() {
     setData(newdata);
     console.log(newdata);
   }
-  // function submit(e) {
-  //   e.preventDefault();
-  //   axios.post(url, {data})
-  //   .then(res => {toast.success('🦄 Wow so easy!', {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //     transition: "bounce",
-  //     });})
-  //   .catch(err => {toast.error('🦄 Wow so easy!', {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //     transition: "bounce",
-  //     });});
-  // }
   const submitData = () => {
     axios.post(url, { data })
       .then(res => {
-        toast.success('🦄 Wow so easy!', {
+        toast.success('Register successed', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -106,7 +80,7 @@ function SignUp() {
         });
       })
       .catch(err => {
-        toast.error('🦄 Wow so easy!', {
+        toast.error('Register failes', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -237,18 +211,18 @@ function SignUp() {
                 onChange={(e) => handle(e)}
                 className={styles.select_level}
               >
-                <option value="FirstElementary">First Elementary</option>
-                <option value="SecondElementary">Second Elementary</option>
-                <option value="ThirdElementary">Third Elementary</option>
-                <option value="FourthElementary">Fourth Elementary</option>
-                <option value="FifthElementary">Fifth Elementary</option>
-                <option value="SixthElementary">Sixth Elementary</option>
-                <option value="FirstPrimary">First Primary</option>
-                <option value="SecondPrimary">Second Primary</option>
-                <option value="ThirdPrimary">Third Primary</option>
-                <option value="FirstSecondary">First Secondary</option>
-                <option value="SecondSecondary">Second Secondary</option>
-                <option value="ThirdSecondary">Third Secondary</option>
+                <option value="1">First Elementary</option>
+                <option value="2">Second Elementary</option>
+                <option value="3">Third Elementary</option>
+                <option value="4">Fourth Elementary</option>
+                <option value="5">Fifth Elementary</option>
+                <option value="6">Sixth Elementary</option>
+                <option value="7">First Primary</option>
+                <option value="8">Second Primary</option>
+                <option value="9">Third Primary</option>
+                <option value="10">First Secondary</option>
+                <option value="11">Second Secondary</option>
+                <option value="12">Third Secondary</option>
               </select>
             </div>
           </div>
