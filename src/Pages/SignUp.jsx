@@ -16,7 +16,7 @@ function SignUp() {
     lName: "",
     phoneNumber: "",
     dateOfBirth: "",
-    level:0,
+    level:1,
   });
   const [Pass1, setPass1] = useState("");
   const [Pass2, setPass2] = useState("");
@@ -61,10 +61,11 @@ function SignUp() {
 
   function handle(e) {
     const newdata = { ...data };
-    newdata[e.target.id] = e.target.value;
+    newdata[e.target.id] = e.target.id === 'level' ? parseInt(e.target.value, 10) : e.target.value;
     setData(newdata);
-    console.log(newdata);
+    console.log(data)
   }
+  
   const submitData = () => {
     axios.post(url, { data })
       .then(res => {
@@ -211,18 +212,18 @@ function SignUp() {
                 onChange={(e) => handle(e)}
                 className={styles.select_level}
               >
-                <option value="1">First Elementary</option>
-                <option value="2">Second Elementary</option>
-                <option value="3">Third Elementary</option>
-                <option value="4">Fourth Elementary</option>
-                <option value="5">Fifth Elementary</option>
-                <option value="6">Sixth Elementary</option>
-                <option value="7">First Primary</option>
-                <option value="8">Second Primary</option>
-                <option value="9">Third Primary</option>
-                <option value="10">First Secondary</option>
-                <option value="11">Second Secondary</option>
-                <option value="12">Third Secondary</option>
+                <option value={1}>First Elementary</option>
+                <option value={2}>Second Elementary</option>
+                <option value={3}>Third Elementary</option>
+                <option value={4}>Fourth Elementary</option>
+                <option value={5}>Fifth Elementary</option>
+                <option value={6}>Sixth Elementary</option>
+                <option value={7}>First Primary</option>
+                <option value={8}>Second Primary</option>
+                <option value={9}>Third Primary</option>
+                <option value={10}>First Secondary</option>
+                <option value={11}>Second Secondary</option>
+                <option value={12}>Third Secondary</option>
               </select>
             </div>
           </div>
