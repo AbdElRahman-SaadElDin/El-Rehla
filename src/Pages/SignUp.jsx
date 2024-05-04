@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
-  const url = "";
+  const url = "https://localhost:7068/api/Auth/register";
   const [data, setData] = useState({
     email: "",
     password: "",

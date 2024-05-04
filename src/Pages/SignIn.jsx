@@ -6,11 +6,16 @@ import "@fontsource/mulish";
 
 
 function SignIn() {
-    const url = "";
+    const url = "https://localhost:7068/api/Auth/login";
     const [data, setData] = useState({
       email: "",
       password: "",
     });
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      submitData();
+    };
+
     function handle(e) {
       const newdata = { ...data };
       newdata[e.target.id] = e.target.value;
@@ -30,7 +35,9 @@ function SignIn() {
       <h1 className={style.title}>Sign-In to your Account</h1>
       <div className={style.par}>
         <div className={style.cont}>
-          <form action="#" className={style.FormSignIn} onSubmit={(e) => submitData() }>
+          <form action="#" className={style.FormSignIn} onSubmit={(e) => {
+            handleSubmit(e);
+          }}>
             <p className={style.welcome}>Welcome back!&#128075;</p>
             <h2 className={style.signTitle}>Sign in to your account</h2>
             <label htmlFor="email" className={style.LogEmail}>Your email</label>
