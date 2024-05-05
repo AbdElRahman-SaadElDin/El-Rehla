@@ -14,6 +14,17 @@ function SignIn() {
     });
     const handleSubmit = (e) => {
       e.preventDefault();
+      toast.info('Signing in...', {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        toastId: 'signin-toast'
+      });
       submitData();
     };
     function handle(e) {
@@ -23,34 +34,41 @@ function SignIn() {
       console.log(newdata)
     }
     const submitData = () => {
-      axios.post(url,  data )
-      .then(res => {
-        const token = res.data;
-        localStorage.setItem('token',token);
-        console.log("our Great Token has come: ",token)
-        toast.success('Sign-In successed', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+      axios.post(url, data)
+        .then(res => {
+          const token = res.data;
+          localStorage.setItem('token', token);
+          console.log("Our Great Token has come: ", token);
+          toast.dismiss('signin-toast');
+          setTimeout(() => {
+            toast.success('Sign-In succeeded', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }, 500); // Adjust delay time (in milliseconds) as needed
+        }).catch(err => {
+          toast.dismiss('signin-toast');
+          setTimeout(() => {
+            toast.error('Sign-In failed', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }, 500); // Adjust delay time (in milliseconds) as needed
         });
-      }).catch(err=>{
-        toast.error('Sign-In failed', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      })
-    }
+    };
+    
   return (
     <div className={style.SignIn}>
       <Header />

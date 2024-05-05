@@ -83,12 +83,25 @@ body {
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.3s ease 2s;
     border-radius: 3px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+    -webkit-transition: background-color 0.3s ease 0.3s;
+    -moz-transition: background-color 0.3s ease 0.3s;
+    -ms-transition: background-color 0.3s ease 0.3s;
+    -o-transition: background-color 0.3s ease 0.3s;
 }
+.continue:active{
+  background-color:#3b35ad ;
+  transition-delay: 0s;
+}
+/* .continue:hover{
+  filter: drop-shadow(0 0 0.5em #646cffaa);
+  -webkit-filter: drop-shadow(0 0 0.5em #646cffaa);
+} */
 .Forget{
   display: block;
   text-align: center;
