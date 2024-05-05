@@ -3,7 +3,8 @@ import Header from "../Components/Header.jsx";
 import style from './SignIn.module.css';
 import axios from "axios";
 import "@fontsource/mulish";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignIn() {
     const url = "https://localhost:7068/api/Auth/login";
@@ -15,29 +16,59 @@ function SignIn() {
       e.preventDefault();
       submitData();
     };
-
     function handle(e) {
       const newdata = { ...data };
       newdata[e.target.id] = e.target.value;
       setData(newdata);
-      console.log(data)
+      console.log(newdata)
     }
     const submitData = () => {
-      axios.post(url, { data })
+      axios.post(url,  data )
       .then(res => {
-        const token = res.data.token;
+        const token = res.data;
         localStorage.setItem('token',token);
+        console.log("our Great Token has come: ",token)
+        toast.success('Sign-In successed', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }).catch(err=>{
+        toast.error('Sign-In failed', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
     }
   return (
     <div className={style.SignIn}>
       <Header />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000} // Auto-close toast after 5 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick // Close toast when clicked
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <h1 className={style.title}>Sign-In to your Account</h1>
       <div className={style.par}>
         <div className={style.cont}>
-          <form action="#" className={style.FormSignIn} onSubmit={(e) => {
-            handleSubmit(e);
-          }}>
+          <form action="#" className={style.FormSignIn} onSubmit={(e) => handleSubmit(e) }>
             <p className={style.welcome}>Welcome back!&#128075;</p>
             <h2 className={style.signTitle}>Sign in to your account</h2>
             <label htmlFor="email" className={style.LogEmail}>Your email</label>

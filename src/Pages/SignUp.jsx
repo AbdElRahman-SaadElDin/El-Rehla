@@ -11,7 +11,7 @@ function SignUp() {
   const [data, setData] = useState({
     email: "",
     password: "",
-    confirm: "",
+    ConfirmPassword: "",
     fName: "",
     lName: "",
     phoneNumber: "",
@@ -61,13 +61,13 @@ function SignUp() {
 
   function handle(e) {
     const newdata = { ...data };
-    newdata[e.target.id] = e.target.id === 'level' ? parseInt(e.target.value, 10) : e.target.value;
+    newdata[e.target.id] = e.target.id === 'level' ? Number(e.target.value) : e.target.value;
     setData(newdata);
-    console.log(data)
+    console.log(newdata)
   }
   
   const submitData = () => {
-    axios.post(url, { data })
+    axios.post(url, data )
       .then(res => {
         toast.success('Register successed', {
           position: "top-right",
@@ -81,7 +81,7 @@ function SignUp() {
         });
       })
       .catch(err => {
-        toast.error('Register failes', {
+        toast.error('Register failed', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -254,7 +254,7 @@ function SignUp() {
                   handlePass2Change(e);
                   handle(e);
                 }}
-                id="confirm"
+                id="ConfirmPassword"
                 name="confirm"
                 placeholder="Password Confirmation"
                 required
