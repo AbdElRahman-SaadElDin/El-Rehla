@@ -71,7 +71,6 @@ function SignIn() {
     
   return (
     <div className={style.SignIn}>
-      <Header />
       <ToastContainer
         position="top-right"
         autoClose={5000} // Auto-close toast after 5 seconds
@@ -97,7 +96,7 @@ function SignIn() {
             <a href="#" className={style.Forget}>Forget your password?</a>
           </form>
           <p>
-            Don't have an account? <a href="/" className={style.up}>Sign up</a>
+            Don't have an account? <a href="/signup" className={style.up}>Sign up</a>
           </p>
         </div>
       </div>

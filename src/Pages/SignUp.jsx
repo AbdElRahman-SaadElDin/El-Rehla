@@ -96,7 +96,6 @@ function SignUp() {
 
   return (
     <div className="SignUp">
-      <Header />
       <ToastContainer
         position="top-right"
         autoClose={5000} // Auto-close toast after 5 seconds
@@ -301,7 +300,7 @@ function SignUp() {
 
           <div className={styles.registerpage}>
             <p>
-              Have an account? <a href="/SignIn">Login</a>
+              Have an account? <a href="/">Login</a>
             </p>
           </div>
         </form>

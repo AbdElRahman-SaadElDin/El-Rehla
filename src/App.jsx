@@ -1,28 +1,43 @@
 import React, { useState } from "react";
 import "./App.css";
 import SignUp from "./Pages/SignUp.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {BrowserRouter as Router , Route,useLocation,Routes } from "react-router-dom";
 import SignIn from "./Pages/SignIn.jsx";
 import Update from "./Pages/Update.jsx";
+import Home from "./Pages/Home.jsx";
+import Dashboard from "./Pages/Dashboard.jsx";
+import Courses from "./Pages/Courses.jsx";
+import Header from "./Components/Header.jsx";
+import Sidebar from "./Components/Sidebar.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <SignUp />,
-  },
-  {
-    path: "/SignIn",
-    element: <SignIn />,
-  },
-  {
-    path:"",
-    element:<Update />,
-  }
-]);
 function App() {
   return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+
+  // Determine if Sidebar should be rendered based on current path
+  const shouldRenderSidebar = !['/', '/signup'].includes(location.pathname);
+
+  // Determine if Header should be rendered based on current path
+  const shouldRenderHeader = !['/home','/dashboard', '/courses'].includes(location.pathname);
+
+  return (
     <div className="App">
-      <RouterProvider router={router}/>
+      {shouldRenderHeader && <Header />}
+      {shouldRenderSidebar && <Sidebar />}
+      <Routes>
+          <Route path="/" exact Component={SignIn}/>
+          <Route path="/signup" Component={SignUp}/> 
+          <Route path="/home" Component={Home}/> 
+          <Route path="/dashboard" Component={Dashboard}/> 
+          <Route path="/courses" Component={Courses}/>
+          </Routes>
     </div>
   );
 }
