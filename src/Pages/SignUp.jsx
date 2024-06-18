@@ -5,9 +5,11 @@ import img from "../imgs/sebastian-svenson-scaled.jpg";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
-  const url = "https://localhost:7068/api/Auth/register";
+  const navigate = useNavigate();
+  const url = "https://c7ff-156-217-31-254.ngrok-free.app/api/auth/register";
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -71,14 +73,20 @@ function SignUp() {
       .then(res => {
         toast.success('Register successed', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "light",
+          onClose: () => {
+            setTimeout(() => {
+              navigate("/");
+            }, 0);
+          }
         });
+        
       })
       .catch(err => {
         toast.error('Register failed', {

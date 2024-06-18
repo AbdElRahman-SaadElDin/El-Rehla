@@ -5,9 +5,11 @@ import axios from "axios";
 import "@fontsource/mulish";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
-    const url = "https://localhost:7068/api/Auth/login";
+    const navigate = useNavigate();
+    const url = "https://c7ff-156-217-31-254.ngrok-free.app/api/Auth/login";
     const [data, setData] = useState({
       email: "",
       password: "",
@@ -35,24 +37,27 @@ function SignIn() {
     }
     const submitData = () => {
       axios.post(url, data)
-        .then(res => {
-          const token = res.data;
-          localStorage.setItem('token', token);
-          console.log("Our Great Token has come: ", token);
-          toast.dismiss('signin-toast');
-          setTimeout(() => {
-            toast.success('Sign-In succeeded', {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          }, 500); // Adjust delay time (in milliseconds) as needed
-        }).catch(err => {
+      .then(res => {
+        const token = res.data;
+        localStorage.setItem('token', token);
+        console.log("Our Great Token has come: ", token);
+        toast.dismiss('signin-toast');
+        toast.success('Sign-In succeeded', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          onClose: () => {
+            setTimeout(() => {
+              navigate("/home");
+            }, 0); // Adjust delay time (in milliseconds) as needed
+          }
+        });
+      }).catch(err => {
           toast.dismiss('signin-toast');
           setTimeout(() => {
             toast.error('Sign-In failed', {
