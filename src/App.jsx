@@ -9,7 +9,11 @@ import Dashboard from "./Pages/Dashboard.jsx";
 import Courses from "./Pages/Courses.jsx";
 import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
+<<<<<<< HEAD
 import Course_Details from "./Pages/Course_Details.jsx";
+=======
+import OneCourse from "./Pages/Courses/OneCourse.jsx"
+>>>>>>> b3eb4ee47ebb820d4a3eb63f489c8b03392d503f
 
 function App() {
   return (
