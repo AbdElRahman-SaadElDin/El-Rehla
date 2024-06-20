@@ -9,6 +9,7 @@ import Dashboard from "./Pages/Dashboard.jsx";
 import Courses from "./Pages/Courses.jsx";
 import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
+import Course_Details from "./Pages/Course_Details.jsx";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function AppContent() {
   const shouldRenderSidebar = !['/', '/signup'].includes(location.pathname);
 
   // Determine if Header should be rendered based on current path
-  const shouldRenderHeader = !['/home','/dashboard', '/courses'].includes(location.pathname);
+  const shouldRenderHeader = !['/home','/dashboard', '/courses','/coursedetails'].includes(location.pathname);
 
   return (
     <div className="App">
@@ -37,6 +38,7 @@ function AppContent() {
           <Route path="/home" Component={Home}/> 
           <Route path="/dashboard" Component={Dashboard}/> 
           <Route path="/courses" Component={Courses}/>
+          <Route path="/coursedetails" Component={Course_Details}/>
           </Routes>
     </div>
   );

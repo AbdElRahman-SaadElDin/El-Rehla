@@ -27,6 +27,7 @@
 }
 .nav_menu.active{
     left: 0;
+    z-index: 1;
     transition: 350ms;
     -webkit-transition: 350ms;
     -moz-transition: 350ms;

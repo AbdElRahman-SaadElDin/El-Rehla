@@ -1,0 +1,35 @@
+.dropmenu{
+    height: 35px;
+    width: 60%;
+    background-color: #bbd0ce;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.dropmenu.open{
+    height: 130px;
+}
+.dropmenu h3{
+    padding: 5px;
+}
+.items-menu{
+    list-style: none;
+    display: none;
+}
+.items-menu.open{
+    display: block;
+}
+.items-menu li{
+    border-bottom: 2px solid black;
+    background-color: gainsboro;
+    padding: 5px;
+}
+.icon{
+    margin-right: 20px;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
