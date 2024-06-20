@@ -2,3 +2,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.CoursesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns */
+    gap: 20px;
+}
+
+
