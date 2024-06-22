@@ -1,71 +1,83 @@
-import image from './learning.jpeg';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import style from './OneCourse.module.css';
-import axios from 'axios';
-import course_data from "./course_data.json"
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import style from './OneCourse.module.css';
+
 const OneCourse = () => {
-    const navigate = useNavigate();
-    const [Courses , setCourses] = useState([])
-    const apiUrl = 'https://0972-156-217-11-146.ngrok-free.app/api/course';
+  const navigate = useNavigate();
+  const [courses, setCourses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const apiUrl = 'https://quality-touching-seahorse.ngrok-free.app/api/course';
 
-// Axios configuration object with headers
-// const axiosConfig = {
-//   headers: {
-//     'ngrok-skip-browser-warning': '69420',
-//   },
-// };
+  // Axios configuration object with headers
+  const axiosConfig = {
+    headers: {
+      'ngrok-skip-browser-warning': '69420',
+    },
+  };
 
-// axios.get(apiUrl, axiosConfig)
-//   .then(response => {
-//     console.log('Response:', response.data);
-//     setCourses(response.data)
-//     // Handle your data here
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//     // Handle error scenarios here
-//   });
-const handleEnrollNow = (courseId) => {
+  const fetchCourses = (query = '') => {
+    const searchUrl = query ? `${apiUrl}?searchquery=${query}` : apiUrl;
+
+    axios.get(searchUrl, axiosConfig)
+      .then(response => {
+        console.log(response.data);
+        setCourses(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchTerm(query);
+    fetchCourses(query);
+  };
+
+  const handleEnrollNow = (courseId) => {
     navigate(`/course-details/${courseId}`);
   };
-return (
 
+  return (
     <div className={style.OneCourse}>
-    
-        <div className={style.CoursesContainer}>
-            {course_data.map((list, index) =>(
-                <div className={style.coursecard}>
-                    <img src={list.image} alt="Course 1 Image"/>
-                    <div className={style.title}>
-                        <h2>{list.name}</h2>
-                    </div>
-                    <p className={style.desc}>{list.description}</p>
+      <div className={style.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search for courses..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className={style.searchInput}
+        />
+      </div>
 
-                    {/* <p key={index}>Instructor: {list.name}</p> */}
-                    
-                    <p>Price: $99.99</p>
-                    <div className={style.rating}>
-                        <span className={style.ratingnumber}>4.0</span>
-                        <span className={style.star}>&#9733;</span>
-                        <span className={style.star}>&#9733;</span>
-                        <span className={style.star}>&#9733;</span>
-                        <span className={style.star}>&#9733;</span>
-                        <span className={style.star}>&#9734;</span>
-                    </div>
-                    <button className={style.loadmorebutton} onClick={() => handleEnrollNow(list.courseId)}>Enroll Now</button>
-                </div>
-            ))}
-
-
-        </div>
-        
-
+      <div className={style.CoursesContainer}>
+        {courses.map((course, index) => (
+          <div key={index} className={style.coursecard}>
+            <img src={course.imageUrl} alt={`Course ${index + 1} Image`} />
+            <div className={style.title}>
+              <h2>{course.name}</h2>
+            </div>
+            <p className={style.desc}>{course.description}</p>
+            <p key={index}>Instructor: {course.teacherName}</p>
+            <div className={style.rating}>
+              <span className={style.ratingnumber}>4.0</span>
+              <span className={style.star}>&#9733;</span>
+              <span className={style.star}>&#9733;</span>
+              <span className={style.star}>&#9733;</span>
+              <span className={style.star}>&#9733;</span>
+              <span className={style.star}>&#9734;</span>
+            </div>
+            <button className={style.loadmorebutton} onClick={() => handleEnrollNow(course.courseId)}>Show Course</button>
+          </div>
+        ))}
+      </div>
     </div>
-    
+  );
+};
 
-)
-}
-
-export default OneCourse
+export default OneCourse;

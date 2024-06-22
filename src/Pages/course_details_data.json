@@ -19,7 +19,7 @@
             {
               "lessonId": 1,
               "name": "Fantastic Cotton Chips",
-              "order": 1
+              "order": 8
             },
             {
               "lessonId": 2,
@@ -56,7 +56,7 @@
             {
               "quizId": 3,
               "title": "qui",
-              "order": 8
+              "order": 1
             }
           ]
         },
