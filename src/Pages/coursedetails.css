@@ -61,3 +61,10 @@
     background-color: black;
     margin-left: 160px;
 }
+.section-title{
+    text-align: center;
+    margin-bottom: 13px;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    font-weight: 700;
+}

@@ -1,0 +1,50 @@
+[
+    {
+      "courseId": 1,
+      "name": "et",
+      "description": "Molestias rerum sed vel facilis. Est molestiae magni. Dolorem iste et ipsam dolorum necessitatibus et non fuga. Est occaecati iste cumque minus facere est reprehenderit iusto.",
+      "imageUrl": "https://picsum.photos/640/480/?image=824"
+    },
+    {
+      "courseId": 2,
+      "name": "consequuntur",
+      "description": "Est enim quia doloremque et dolor voluptas. Et qui omnis accusantium placeat eaque. Tempore ut modi quos quasi et rerum dolorem explicabo repellendus. Consequatur aut aliquam. Id tempore deserunt ratione unde doloribus quis.",
+      "imageUrl": "https://picsum.photos/640/480/?image=758"
+    },
+    {
+      "courseId": 3,
+      "name": "omnis",
+      "description": "Omnis repudiandae minima explicabo consequatur et fugiat dolor neque voluptas. Voluptas quasi eligendi earum odit vero. Est quasi itaque ipsum.",
+      "imageUrl": "https://picsum.photos/640/480/?image=58"
+    },
+    {
+      "courseId": 4,
+      "name": "sequi",
+      "description": "Quis enim nihil aliquam culpa. Fugiat dolor iure eum. Velit adipisci fuga delectus nemo sed voluptas eum.",
+      "imageUrl": "https://picsum.photos/640/480/?image=586"
+    },
+    {
+      "courseId": 5,
+      "name": "nam",
+      "description": "Suscipit qui laboriosam cupiditate voluptatem a reiciendis aspernatur fugit reprehenderit. Voluptatem nemo vel blanditiis excepturi soluta accusantium debitis dolorem. Qui officia expedita est explicabo in et accusantium debitis quo. Maxime et fuga eius velit aliquid qui autem tenetur. In ut hic voluptas minima reiciendis possimus. Laborum vitae et adipisci occaecati ipsa et recusandae nesciunt architecto.",
+      "imageUrl": "https://picsum.photos/640/480/?image=101"
+    },
+    {
+      "courseId": 6,
+      "name": "repellendus",
+      "description": "Qui et voluptas quo qui incidunt perferendis reprehenderit quo. Accusamus voluptatem laudantium cupiditate repudiandae distinctio praesentium corrupti tempore iste. Reiciendis autem aut sint aliquid. Esse quia in quod architecto ut ducimus. Sit est ab fugit assumenda ipsum at ut ipsa aliquid.",
+      "imageUrl": "https://picsum.photos/640/480/?image=668"
+    },
+    {
+      "courseId": 7,
+      "name": "omnis",
+      "description": "Quibusdam similique et. Nihil quasi ullam accusamus esse voluptatem minima maxime dolores minima. Sequi ut voluptatem sit qui repellat tempore sed qui autem. Et dolorum id voluptatem eius aut dolore. Suscipit et et ratione vero non eum blanditiis voluptate. Voluptas modi aut voluptates dolor eos sed distinctio est ea.",
+      "imageUrl": "https://picsum.photos/640/480/?image=4"
+    },
+    {
+      "courseId": 8,
+      "name": "perspiciatis",
+      "description": "Dolores sunt ad et. Sunt et dignissimos est blanditiis quisquam iure. Sint rerum a enim adipisci voluptate excepturi sed eligendi. Eaque sint eius quia et. Est enim dolorem eligendi ea aut. Saepe esse voluptatem reprehenderit cum in sed facere consequuntur unde.",
+      "imageUrl": "https://picsum.photos/640/480/?image=528"
+    }
+  ]

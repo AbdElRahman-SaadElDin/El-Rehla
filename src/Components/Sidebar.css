@@ -11,6 +11,7 @@
     background: none;
 }
 .nav_menu{
+    z-index: 1;
     background-color: #060b26;
     width: 205px;
     height: 100vh;
