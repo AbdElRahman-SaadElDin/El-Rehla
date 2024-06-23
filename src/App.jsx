@@ -7,6 +7,8 @@ import Update from "./Pages/Update.jsx";
 import Home from "./Pages/Home.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import OneCourse from "./Pages/Courses/OneCourse.jsx";
+import Content from "./Pages/CourseContent/Content.jsx"
+
 import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Course_Details from "./Pages/Course_Details.jsx";
