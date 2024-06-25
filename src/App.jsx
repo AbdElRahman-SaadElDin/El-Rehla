@@ -11,6 +11,7 @@ import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Course_Details from "./Pages/Course_Details.jsx";
 import SubscriptionForm from "./Pages/payment.jsx";
+
 function App() {
   return (
     <Router>
@@ -27,8 +28,8 @@ function AppContent() {
     location.pathname === '/home' ||
     location.pathname === '/about' ||
     location.pathname === '/courses' ||
-    location.pathname === '/content' ||
     location.pathname === '/payment' ||
+    location.pathname.startsWith('/content')||
     location.pathname.startsWith('/course-details')
   );
 
@@ -43,7 +44,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<OneCourse />} />
         <Route path="/course-details/:courseId" element={<Course_Details />} />
-        <Route path="/content" element={<Content />} />
+        <Route path="/content/:courseId" element={<Content />} />
         <Route path="/payment" element={<SubscriptionForm />} />
       </Routes>
     </div>

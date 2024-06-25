@@ -9,6 +9,7 @@ function Course_Details() {
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedContent, setSelectedContent] = useState(null);
   const apiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/details`;
   const token = localStorage.getItem('token');
   const axiosConfig = {
@@ -64,6 +65,11 @@ function Course_Details() {
   }
 
   const videoUrl = course.introductionVideoUrl.replace('watch?v=', 'embed/');
+
+  const handleSelect = (item) => {
+    setSelectedContent(item);
+  };
+
   return (
     <>
       <div className='info-cont'>
@@ -87,29 +93,38 @@ function Course_Details() {
       <div className="course-content">
         <h2>Course Contents</h2>
         <div className='line'></div>
-        {course.sectionDtos.map((section, sectionIndex) => (
-          <div key={section.sectionId}>
-            <h3 className='section-title'>{section.sectionName}</h3>
-            {section.moduleDtos.map((module, moduleIndex) => {
-              // Combine and sort lessons and quizzes
-              const items = [
-                ...module.lessonDtos.map(lesson => ({ type: 'Lesson', order: lesson.order, content: `Lesson: ${lesson.name}` })),
-                ...module.quizDtos.map(quiz => ({ type: 'Quiz', order: quiz.order, content: `Quiz: ${quiz.title}` }))
-              ].sort((a, b) => a.order - b.order);
+        <div className='content-layout'>
+          <div className='dropmenu-container'>
+            {course.sectionDtos.map((section, sectionIndex) => (
+              <div key={section.sectionId}>
+                <h3 className='section-title'>{section.sectionName}</h3>
+                {section.moduleDtos.map((module, moduleIndex) => {
+                  const items = [
+                    ...module.lessonDtos.map(lesson => ({ type: 'Lesson', order: lesson.order, content: `Lesson: ${lesson.name}` })),
+                    ...module.quizDtos.map(quiz => ({ type: 'Quiz', order: quiz.order, content: `Quiz: ${quiz.title}` }))
+                  ].sort((a, b) => a.order - b.order);
 
-              // Extract the content after sorting
-              const orderedItems = items.map(item => item.content);
-
-              return (
-                <Dropdown
-                  key={module.moduleId}
-                  content={module.moduleName}
-                  items={orderedItems}
-                />
-              );
-            })}
+                  return (
+                    <Dropdown
+                      key={module.moduleId}
+                      content={module.moduleName}
+                      items={items}
+                      onSelect={handleSelect}
+                    />
+                  );
+                })}
+              </div>
+            ))}
           </div>
-        ))}
+          <div className='selected-content'>
+            {selectedContent && (
+              <div>
+                <h2>{selectedContent.type}</h2>
+                <p>{selectedContent.content}</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

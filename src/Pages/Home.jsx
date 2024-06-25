@@ -12,8 +12,8 @@ function Home() {
     const token = localStorage.getItem('token');
     const mycoursesUrl = "https://quality-touching-seahorse.ngrok-free.app/api/student/mycourses";
 
-    const handleEnrollNow = (courseId) => {
-        navigate(`/course-details/${courseId}`);
+    const handleCourseClick = (courseId) => {
+        navigate(`/content/${courseId}`);
     };
 
     const axiosConfig = {
@@ -80,7 +80,7 @@ function Home() {
                           <span className={style.star}>&#9733;</span>
                           <span className={style.star}>&#9734;</span>
                         </div>
-                        <button className={style.loadmorebutton} onClick={() => handleEnrollNow(course.courseId)}>Start Course</button>
+                        <button className={style.loadmorebutton} onClick={() => handleCourseClick(course.courseId)}>Start Course</button>
                       </div>
                     ))}
                   </div>
