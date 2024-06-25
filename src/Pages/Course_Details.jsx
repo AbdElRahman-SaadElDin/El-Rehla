@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Dropdown from '../Components/Dropdown';
 import axios from 'axios';
 import './coursedetails.css';
 
 function Course_Details() {
   const { courseId } = useParams();
+  const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
   const apiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/details`;
+  const token = localStorage.getItem('token');
   const axiosConfig = {
     headers: {
       'ngrok-skip-browser-warning': '69420',
+      'Authorization': `Bearer ${token}`,
     },
   };
 
@@ -27,6 +30,31 @@ function Course_Details() {
       });
   }, [courseId]);
 
+  const handleEnroll = () => {
+    const enrollApiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/enroll`;
+    const token = localStorage.getItem('token');
+
+    axios.post(enrollApiUrl, {}, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '69420',
+      },
+    })
+      .then(response => {
+        console.log('Enrollment successful:', response.data);
+          navigate('/home');
+      })
+      .catch(error => {
+        if (error.response && error.response.status === 403) {
+          console.error('Payment required:', error);
+          navigate('/payment');
+        } else {
+          console.error('Enrollment failed:', error);
+          setError('Enrollment failed. Please try again.');
+        }
+      });
+  };
+
   if (error) {
     return <div>{error}</div>;
   }
@@ -34,6 +62,7 @@ function Course_Details() {
   if (!course) {
     return <div>Loading...</div>;
   }
+
   const videoUrl = course.introductionVideoUrl.replace('watch?v=', 'embed/');
   return (
     <>
@@ -51,7 +80,7 @@ function Course_Details() {
           <h2>Course Details</h2>
           <p>{course.description}</p>
           <div>
-            <p>Enroll now</p>
+            <p onClick={handleEnroll}>Enroll now</p>
           </div>
         </div>
       </div>
@@ -85,4 +114,5 @@ function Course_Details() {
     </>
   );
 }
+
 export default Course_Details;

@@ -1,0 +1,149 @@
+.container{
+    margin: 20px;
+}
+.welcome h1{
+    text-transform: capitalize;
+}
+.mycourses{
+    height: 80vh;
+    margin-top: 15px;
+}
+.mycourses h2{
+    text-transform: capitalize;
+}
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin-top: 3px;
+}
+.not{
+    position: relative;
+    font-size: 3rem;
+    height: 100px;
+    top: calc(50% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.OneCourse {
+    text-align: center;
+    padding: 20px;
+}
+
+.title h2 {
+    word-break: break-word;
+    text-overflow: ellipsis; /* Add dots (...) to indicate truncation */
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+}
+
+.CoursesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns */
+    gap: 20px;
+}
+
+.coursecard {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    position: relative; /* Make position relative for absolute positioning of button */
+}
+
+.coursecard img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Add transition effect */
+}
+
+.coursecard:hover img {
+    box-shadow: 0 8px 16px rgba(3, 13, 66, 0.349);
+}
+
+.coursecard h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.coursecard p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.coursecard .rating {
+    color: #f39c12; /* Change star color */
+}
+
+.coursecard .star {
+    font-size: 1.2rem;
+    margin-right: 3px;
+}
+
+.coursecard .ratingnumber {
+    margin-left: 5px;
+    color: #333; /* Change rating number color */
+}
+
+.coursecard button {
+    position: relative;
+    margin-top: 20px;
+    bottom: 10px;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.coursecard button:hover {
+    background-color: #0056b3;
+}
+
+.ratingnumber {
+    color: #333;
+}
+
+.load-more-container {
+    margin-top: 20px;
+}
+
+.loadmorebutton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.desc{
+    height: 100px;
+    overflow: hidden;
+}
+.searchContainer {
+    margin: 20px;
+    text-align: center;
+  }
+  
+.searchInput {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }  

@@ -7,7 +7,7 @@ body {
     align-items: center;
 }
 
-header {
+.content-header {
     width: 100%;
     background-color: #f5f5f5;
     padding: 1em;
@@ -120,23 +120,23 @@ aside h4 {
     margin: 0 0 0.5em 0;
 }
 
-nav ul {
+.content-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-nav ul li {
+.content-nav ul li {
     padding: 0.5em;
     cursor: pointer;
 }
 
-nav ul li.active,
-nav ul li:hover {
+.content-nav ul li.active,
+.content-nav ul li:hover {
     background-color: #ddd;
 }
 
-nav button {
+.content-nav button {
     margin-top: 6em;
     padding: 12px;
     width: 100%;

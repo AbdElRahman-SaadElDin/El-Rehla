@@ -49,7 +49,7 @@ const Content = () => {
 
     return (
         <div>
-            <header>
+            <header className='content-header'>
                 <h1>Course Name</h1>
             </header>
             <main>
@@ -107,7 +107,7 @@ const Content = () => {
                 <aside>
                     <h3>Section 1</h3>
                     <h4>Module 1</h4>
-                    <nav>
+                    <nav className='content-nav'>
                         <ul>
                             {lessonsData.map((lesson, index) => (
                                 <li
