@@ -23,7 +23,7 @@ const SubscriptionForm = () => {
   };
 
   const handlePayment = () => {
-    const paymentUrl = "https://quality-touching-seahorse.ngrok-free.app/api/payment";
+    const paymentUrl = "https://localhost:7068/api/payment";
     const token = localStorage.getItem('token');
 
     axios.post(paymentUrl, {}, {

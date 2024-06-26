@@ -30,6 +30,7 @@ function AppContent() {
     location.pathname === '/about' ||
     location.pathname === '/courses' ||
     location.pathname === '/payment' ||
+    location.pathname === '/dashboard' ||
     location.pathname.startsWith('/content')||
     location.pathname.startsWith('/course-details')
   );
@@ -47,6 +48,7 @@ function AppContent() {
         <Route path="/course-details/:courseId" element={<Course_Details />} />
         <Route path="/content/:courseId" element={<Content />} />
         <Route path="/payment" element={<SubscriptionForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );

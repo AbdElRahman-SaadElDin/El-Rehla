@@ -10,7 +10,7 @@ function Course_Details() {
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
   const [selectedContent, setSelectedContent] = useState(null);
-  const apiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/details`;
+  const apiUrl = `https://localhost:7068/api/course/${courseId}/details`;
   const token = localStorage.getItem('token');
   const axiosConfig = {
     headers: {
