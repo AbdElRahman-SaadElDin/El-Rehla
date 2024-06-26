@@ -11,6 +11,7 @@ import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Course_Details from "./Pages/Course_Details.jsx";
 import SubscriptionForm from "./Pages/payment.jsx";
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx"
 
 function App() {
   return (
