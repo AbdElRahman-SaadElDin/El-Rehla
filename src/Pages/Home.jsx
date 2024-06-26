@@ -86,7 +86,10 @@ function Home() {
                   </div>
                   </div>
                 ) : (
+                  <div>
                     <p className={style.not}>You don't have any added courses yet.</p>
+                    <a href="/courses" className={style.courseButton}>Our courses</a>
+                    </div>
                 )}
             </div>
         </div>

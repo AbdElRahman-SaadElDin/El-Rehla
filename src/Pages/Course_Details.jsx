@@ -34,7 +34,7 @@ function Course_Details() {
   const handleEnroll = () => {
     const enrollApiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/enroll`;
     const token = localStorage.getItem('token');
-
+  
     axios.post(enrollApiUrl, {}, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -43,18 +43,18 @@ function Course_Details() {
     })
       .then(response => {
         console.log('Enrollment successful:', response.data);
-          navigate('/home');
+        navigate('/home');
       })
       .catch(error => {
         if (error.response && error.response.status === 403) {
           console.error('Payment required:', error);
-          navigate('/payment');
+          navigate(`/payment?courseId=${courseId}`);
         } else {
           console.error('Enrollment failed:', error);
           setError('Enrollment failed. Please try again.');
         }
       });
-  };
+  };  
 
   if (error) {
     return <div>{error}</div>;

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import './payment.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SubscriptionForm = () => {
   const [number, setNumber] = useState('');
@@ -12,6 +14,9 @@ const SubscriptionForm = () => {
   const [cvc, setCvc] = useState('');
   const [focus, setFocus] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const courseId = queryParams.get('courseId');
 
   const handleInputFocus = (e) => {
     setFocus(e.target.name);
@@ -19,6 +24,10 @@ const SubscriptionForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (number.length !== 16) {
+      toast.error('Card number must be 16 digits.');
+      return;
+    }
     handlePayment();
   };
 
@@ -33,18 +42,21 @@ const SubscriptionForm = () => {
       },
     })
     .then(res => {
-      alert('Subscription successful!');
-      navigate(-1); // Navigate to the previous page
+      toast.success('Subscription successful!');
+      setTimeout(() => {
+        navigate(`/course-details/#${courseId}`); // Navigate back to the course details page
+      }, 2000);
     })
     .catch(err => {
       console.error('Payment failed', err);
-      alert('Payment failed. Please try again.');
+      toast.error('Payment failed. Please try again.');
     });
   }
 
   return (
     <div className="container">
-      <h2 className="title">Subscribe for a Year</h2>
+      <ToastContainer />
+      <h1 className="title">Subscribe in platform for a Year</h1>
       <Cards
         number={number}
         name={name}
@@ -97,7 +109,7 @@ const SubscriptionForm = () => {
           className="input input-readonly"
         />
         <div className='sub'>
-        <button type="submit" className="button" onClick={handlePayment}>Continue</button>
+          <button type="submit" className="button">Continue</button>
         </div>
       </form>
     </div>

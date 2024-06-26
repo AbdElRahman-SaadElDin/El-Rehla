@@ -57,6 +57,7 @@ body {
   border: 1px solid #d1d1d1;
   width: 75%;
   height: 8%;
+  padding-left: 10px;
 }
 .LogEmail,.LogPass{
   color: #333333;
