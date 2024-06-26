@@ -7,7 +7,7 @@ const OneCourse = () => {
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const apiUrl = 'https://quality-touching-seahorse.ngrok-free.app/api/course';
+  const apiUrl = 'https://localhost:7068/api/course';
 
   // Axios configuration object with headers
   const axiosConfig = {

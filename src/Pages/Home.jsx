@@ -10,7 +10,7 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const token = localStorage.getItem('token');
-    const mycoursesUrl = "https://quality-touching-seahorse.ngrok-free.app/api/student/mycourses";
+    const mycoursesUrl = "https://localhost:7068/api/student/mycourses";
 
     const handleCourseClick = (courseId) => {
         navigate(`/content/${courseId}`);

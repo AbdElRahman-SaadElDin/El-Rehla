@@ -11,7 +11,12 @@ import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Course_Details from "./Pages/Course_Details.jsx";
 import SubscriptionForm from "./Pages/payment.jsx";
+<<<<<<< HEAD
 import ContactUs from "./Pages/ContactUS.jsx";
+=======
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx"
+
+>>>>>>> 086a6214a01ff4d6d63fe68c731a4f1c38c18164
 function App() {
   return (
     <Router>
@@ -29,7 +34,11 @@ function AppContent() {
     location.pathname === '/about' ||
     location.pathname === '/courses' ||
     location.pathname === '/payment' ||
+<<<<<<< HEAD
     location.pathname === '/contactus'||
+=======
+    location.pathname === '/dashboard' ||
+>>>>>>> 086a6214a01ff4d6d63fe68c731a4f1c38c18164
     location.pathname.startsWith('/content')||
     location.pathname.startsWith('/course-details')
   );
@@ -47,7 +56,11 @@ function AppContent() {
         <Route path="/course-details/:courseId" element={<Course_Details />} />
         <Route path="/content/:courseId" element={<Content />} />
         <Route path="/payment" element={<SubscriptionForm />} />
+<<<<<<< HEAD
         <Route path="/contactus" element={<ContactUs />} />
+=======
+        <Route path="/dashboard" element={<Dashboard />} />
+>>>>>>> 086a6214a01ff4d6d63fe68c731a4f1c38c18164
       </Routes>
     </div>
   );

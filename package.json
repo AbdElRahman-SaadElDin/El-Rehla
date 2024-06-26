@@ -11,7 +11,11 @@
     "assert": "^2.1.0",
     "axios": "^1.7.2",
     "browserify-zlib": "^0.2.0",
+<<<<<<< HEAD
     "emailjs-com": "^3.2.0",
+=======
+    "chart.js": "^4.4.3",
+>>>>>>> 086a6214a01ff4d6d63fe68c731a4f1c38c18164
     "https-browserify": "^1.0.0",
     "react": "^18.2.0",
     "react-credit-cards": "^0.8.3",

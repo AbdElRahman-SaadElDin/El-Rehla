@@ -11,7 +11,8 @@ function Course_Content() {
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
   const [selectedContent, setSelectedContent] = useState(null);
-  const apiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/details`;
+  const [quizAnswers, setQuizAnswers] = useState({});
+  const apiUrl = `https://localhost:7068/api/course/${courseId}/details`;
   const token = localStorage.getItem('token');
   const axiosConfig = {
     headers: {
@@ -32,7 +33,7 @@ function Course_Content() {
 
   const handleItemClick = (item) => {
     if (item.type === 'Lesson') {
-      axios.get(`https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/content/lesson/${item.id}`, axiosConfig)
+      axios.get(`https://localhost:7068/api/course/${courseId}/content/lesson/${item.id}`, axiosConfig)
         .then(response => {
           setSelectedContent(
             <div>
@@ -52,10 +53,67 @@ function Course_Content() {
           setError('Error fetching lesson content.');
         });
     } else if (item.type === 'Quiz') {
+<<<<<<< HEAD
       setSelectedContent(
         <QuizComponent courseId={courseId} itemId={item.id} />
       );
+=======
+      axios.get(`https://localhost:7068/api/course/${courseId}/content/quiz/${item.id}`, axiosConfig)
+        .then(response => {
+          setSelectedContent(
+            <div>
+              <h2>{response.data.title}</h2>
+              {response.data.questions.map(question => (
+                <div key={question.questionId}>
+                  <p>{question.questionText}</p>
+                  {question.choices.map(choice => (
+                    <div key={choice.choiceId}>
+                      <input 
+                        type="radio" 
+                        id={`choice-${choice.choiceId}`} 
+                        name={`question-${question.questionId}`} 
+                        value={choice.choiceId}
+                        onChange={() => handleAnswerChange(question.questionId, choice.choiceId)}
+                      />
+                      <label htmlFor={`choice-${choice.choiceId}`}>{choice.choiceText}</label>
+                    </div>
+                  ))}
+                </div>
+              ))}
+              <button onClick={() => handleSubmit(response.data)}>Submit Quiz</button>
+            </div>
+          );
+        })
+        .catch(error => {
+          setError('Error fetching quiz content.');
+        });
+>>>>>>> 086a6214a01ff4d6d63fe68c731a4f1c38c18164
     }
+  };
+
+  const handleAnswerChange = (questionId, choiceId) => {
+    setQuizAnswers(prevState => ({
+      ...prevState,
+      [questionId]: choiceId
+    }));
+  };
+
+  const handleSubmit = (quizData) => {
+    const correctAnswers = quizData.questions.reduce((acc, question) => {
+      acc[question.questionId] = question.rightChoiceId;
+      return acc;
+    }, {});
+
+    const studentAnswers = quizAnswers;
+
+    const results = quizData.questions.map(question => ({
+      questionId: question.questionId,
+      isCorrect: studentAnswers[question.questionId] === correctAnswers[question.questionId]
+    }));
+
+    // Log results or handle them as needed
+    console.log('Quiz Results:', results);
+    alert('Quiz submitted successfully! Check the console for results.');
   };
 
   if (error) {
