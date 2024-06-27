@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function SignIn() {
     const navigate = useNavigate();
-    const url = "https://localhost:7068/api/Auth/login";
+    const url = "https://quality-touching-seahorse.ngrok-free.app/api/Auth/login";
     const [data, setData] = useState({
       email: "",
       password: "",

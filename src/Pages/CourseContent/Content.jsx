@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Dropdown from '../../Components/Dropdown';
 import axios from 'axios';
-import QuizComponent from './QuizComponent';
+import QuizComponent from '../QuizComponent';
 import './Content.css';
 
 function Course_Content() {
@@ -11,7 +11,7 @@ function Course_Content() {
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
   const [selectedContent, setSelectedContent] = useState(null);
-  const apiUrl = `https://localhost:7068/api/course/${courseId}/details`;
+  const apiUrl = `https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/details`;
   const token = localStorage.getItem('token');
   const axiosConfig = {
     headers: {
@@ -32,7 +32,7 @@ function Course_Content() {
 
   const handleItemClick = (item) => {
     if (item.type === 'Lesson') {
-      axios.get(`https://localhost:7068/api/course/${courseId}/content/lesson/${item.id}`, axiosConfig)
+      axios.get(`https://quality-touching-seahorse.ngrok-free.app/api/course/${courseId}/content/lesson/${item.id}`, axiosConfig)
         .then(response => {
           setSelectedContent(
             <div>
