@@ -6,7 +6,6 @@ import SignIn from "./Pages/SignIn.jsx";
 import Home from "./Pages/Home.jsx";
 import OneCourse from "./Pages/Courses/OneCourse.jsx";
 import Content from "./Pages/CourseContent/Content.jsx"
-import About from "./Pages/About.jsx";
 import Header from "./Components/Header.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Course_Details from "./Pages/Course_Details.jsx";
@@ -27,7 +26,6 @@ function AppContent() {
   const shouldRenderSidebar = !['/', '/signup'].includes(location.pathname);
   const shouldRenderHeader = !(
     location.pathname === '/home' ||
-    location.pathname === '/about' ||
     location.pathname === '/courses' ||
     location.pathname === '/payment' ||
     location.pathname === '/contactus'||
@@ -44,7 +42,6 @@ function AppContent() {
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/courses" element={<OneCourse />} />
         <Route path="/course-details/:courseId" element={<Course_Details />} />
         <Route path="/content/:courseId" element={<Content />} />
