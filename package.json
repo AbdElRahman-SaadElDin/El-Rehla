@@ -12,7 +12,10 @@
     "axios": "^1.7.2",
     "browserify-zlib": "^0.2.0",
     "chart.js": "^4.4.3",
+<<<<<<< Updated upstream
     "emailjs-com": "^3.2.0",
+=======
+>>>>>>> Stashed changes
     "https-browserify": "^1.0.0",
     "react": "^18.2.0",
     "react-credit-cards": "^0.8.3",
